@@ -1,0 +1,75 @@
+functie
+
+1: list with zones each timezone is a row in a table containing ,countrycode,country,city and current time
+2: when clicked on a row the timezone is transfered to a favorites list, these are saved in local storage
+therefore the user has his favorite timezones at pageload
+3: Add an delete in list
+
+graphics
+
+list 1: favorites timezones, this a table with coloms countrycode,country,city and currentime (moment object) and a delete icon
+the delete icon removes the timezone from localstorage. The time in is this list is updated
+every second
+list 2: all time zones, this a table, this a table with coloms countrycode,country,city and currentime (moment object) and a add icon
+the add icon ads the zone to locolstorage.Time in this list is updated every minute
+search field 1: character typed in this search field will be used to search countrycode,country and city
+in all time zones
+
+code:
+
+
+
+allTimeZones =[]
+allTimeZonesUpdated = false
+allTimeZonesToRender = []
+
+favoriteTimeZones = []
+
+main:
+
+
+function getAllTimeZones:
+    update allTimeZones Array
+    update allTimeZonesToRender
+
+
+function searchField(inputCharacter):
+    search countrycode,country and city for allTimeZones for hits
+    change allTimeZonesToRender to a list of hitted timezones
+    allTimeZonesUpdated = true
+    renderAllTimeZones()
+
+
+
+function renderAllTimeZones:
+    formatTimeZones()
+    addAllTimeZonesRowSelection()
+
+function formatTimeZones()
+    formats and render all timezones
+
+
+function addAllTimeZonesRowSelection()
+    makes each row in alltimeZonesToRender clickable
+    get localstorage and add the new zone, then makes uniques
+
+function addTimeToTimezoneList(listname,seconds) can be used for favorite and allTimeZones
+    add seconds to moment object in favoritesTimeZones or allTimeZones
+
+
+setInterval() each minutes updated allTimeZonesList
+
+    addTimeToTimezoneList(listname,seconds)
+    renderAllTimeZones()
+    
+
+---------------------------------------------
+function addFavoriteTZRemoveHandlers()
+    adds remove button and deletes a favorite from local storage
+
+function formatFavoriteTimeZones()
+    formats favorite TimeZones
+
+function renderFavoriteTimeZones()
+    formatFavoriteTimeZones()
+
